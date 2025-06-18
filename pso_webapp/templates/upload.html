@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PSO Clustering</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f4;
+    }
+    h2 {
+      color: #333;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="number"],
+    input[type="file"] {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    .radio-group {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4cae4c;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Upload CSV or Generate Random Data</h2>
+
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <label for="n_clusters">Number of Clusters:</label>
+    <input type="number" name="n_clusters" min="1" value="4" required>
+
+    <label for="n_particles">Population Size:</label>
+    <input type="number" name="n_particles" min="1" value="30" required>
+
+    <label for="n_iterations">Max Iterations:</label>
+    <input type="number" name="n_iterations" min="1" value="100" required>
+
+    <div class="radio-group">
+      <label>Use Random Data?</label><br>
+      <input type="radio" id="yes" name="use_random" value="yes">
+      <label for="yes">Yes</label><br>
+      <input type="radio" id="no" name="use_random" value="no" checked>
+      <label for="no">No</label>
+    </div>
+
+    <label for="file">Upload CSV file (if not using random data):</label>
+    <input type="file" name="file" accept=".csv">
+
+    <button type="submit">Run Clustering</button>
+  </form>
+
+</body>
+</html>
